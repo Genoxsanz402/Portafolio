@@ -1,0 +1,421 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1c1733;
+    color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans', sans-serif; /* Aplica la tipografía Open Sans a todos los títulos */
+    margin: 0;
+    padding: 20px 0;
+    font-size: 61px; /* Tamaño del texto para los títulos y subtítulos */
+
+  }
+  #titulo{
+    font-size: 61px; /* Tamaño del texto para los títulos y subtítulos */
+
+  }
+/* Estilos para el header */
+header {
+    background-color: #4b0082; /* Morado oscuro */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.5s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el logo */
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff; /* Ajusta el color del logo */
+    text-decoration: none;
+}
+
+.logo:hover {
+    color: #ffcc00; /* Cambia el color al pasar el cursor */
+}
+
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffcc00;
+}
+
+section {
+    padding: 50px 0;
+}
+
+section#about p {
+    font-size: 1.3em; /* Tamaño de fuente más grande para la sección "Acerca de mí" */
+    line-height: 1.6; /* Espaciado entre líneas */
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px; /* Establece un ancho máximo */
+    margin: 0 auto;
+}
+
+
+footer {
+    background-color: #290040; /* Morado neon */
+    padding: 20px 0;
+    text-align: center;
+}
+
+section#about {
+    padding-top: 80px; /* Ajusta la cantidad según sea necesario */
+    text-align: center;
+    background-color: #290040; /* Morado neon */
+    color: #fff;
+}
+section#about img {
+    border-radius: 50%; /* Bordes redondeados para la imagen de perfil */
+    max-width: 300px; /* Tamaño máximo de la imagen */
+    margin: 20px 0; /* Espacio alrededor de la imagen */
+}
+
+
+section#about img {
+    --glow-color: rgb(217, 176, 255);
+    --glow-spread-color: rgba(191, 123, 255, 0.781);
+    --enhanced-glow-color: rgb(231, 206, 255);
+    --btn-color: rgb(100, 61, 136);
+    border: .25em solid var(--glow-color);
+    color: var(--glow-color);
+    font-size: 25px;
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border-radius: 50%;
+    outline: none;
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 1em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+    text-shadow: 0 0 .5em var(--glow-color);
+    position: relative;
+    transition: all 0.3s;
+   }
+
+input, textarea {
+    border-radius: 50%;
+    max-width: 200px;
+    margin: 20px 0;
+    box-shadow: 0 0 20px 5px #8b3de6, 0 0 20px 10px #290040; /* Efecto de borde neon (morado y azul) */
+}
+section#portfolio {
+    background-color: #290040; /* Morado neon */
+    color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+    .video-item {
+        max-width: 100%;
+    }
+}
+/* ... (el resto del código se mantiene igual) ... */
+
+.video-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.video-item img {
+    width: 100%;
+    max-width: 400px; /* Ajusta el tamaño de la miniatura según sea necesario */
+    transition: transform 0.2s;
+}
+
+.video-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Estilos adicionales para la sección de portfolio */
+
+#portfolio {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Resto de tus estilos existentes... */
+
+/* (A) GALLERY WRAPPER */
+/* (A1) BIG SCREENS - 3 IMAGES PER ROW */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-gap: 10px;
+    max-width: 1200px; /* opcional */
+    margin: 0 auto; /* opcional */
+}
+
+/* (A2) SMALL SCREENS - 2 IMAGES PER ROW */
+@media screen and (max-width: 768px) {
+    .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* (B) GALLERY VIDEOS */
+/* (B1) THUMBNAIL VIDEO */
+.gallery video {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* fill | contain | cover | scale-down */
+    cursor: pointer;
+}
+
+/* (B2) FULLSCREEN VIDEO */
+.gallery video.full {
+    position: fixed;
+    top: 0; left: 0; z-index: 999;
+    width: 100vw; height: 100vh;
+    background: #000;
+    object-fit: scale-down;
+}
+
+/* (C) EXIT FULLSCREEN */
+#vClose {
+    position: fixed; display: none;
+    top: 0; right: 0; z-index: 9999;
+    font-size: 20px; font-weight: 700;
+    padding: 10px 15px;
+    color: #fff;
+    background: #5204e4;
+    cursor: pointer;
+}
+
+#vClose.show { display: block; }
+section#contact {
+    background-color: #512b58; /* Azul neon */
+    color: #fff;
+    text-align: center;
+}
+
+section#contact p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+/* Agrega estilos al formulario de contacto (puedes personalizar según tus necesidades) */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+input[type="submit"] {
+    background-color: #ffcc00;
+    color: #512b58;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #512b58;
+    color: #fff;
+}
+/* ... (código existente) ... */
+
+#social {
+    background-color: #2E1F46;
+    color: #FFFFFF;
+    padding: 4rem 0;
+    text-align: center;
+    
+}    
+
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #FFFFFF;
+    transition: color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.social-links a:hover {
+    color: #6d04e4;
+}
+
+.social-links i {
+    font-size: 4rem; /* Ajusta el tamaño de los iconos según sea necesario */
+}
+
+.social-links p {
+    margin: 0.5rem 0;
+}
+
+.social-links span {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* ... (código existente) ... */
+
+/* ... (código existente) ... */
+
+#contacto {
+    background-color: #F8F8F8;
+    color: #333333;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #E41F35;
+    color: #FFFFFF;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #9F0F25;
+}
+
+/* ... (código existente) ... */
+/* ... (código existente) ... */
+
+.confirmacion {
+    background-color: #4CAF50;
+    color: #FFFFFF;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.confirmacion h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.confirmacion p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+/* ... (código existente) ... */
+/* ... (código existente) ... */
+
+#contacto {
+    background-color: #2E1F46;
+    color: #fff;
+    padding: 4rem 0;
+    text-align: center;
+}
+/* ... (código existente) ... */
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 1rem; /* Ajusta el tamaño del relleno según sea necesario */
+    margin-bottom: 1.5rem; /* Ajusta el margen inferior según sea necesario */
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #E41F35;
+    color: #FFFFFF;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #9F0F25;
+}
+
+/* ... (código existente) ... */
+#precios{
+    text-align: center;
+    
+}
+#lista-precios{
+    text-align: left;
+    text-decoration: none;
+
+}
+ul {
+    list-style-type: none;
+    font-size: 24px; /* Tamaño del texto para los títulos y subtítulos */
+}
